@@ -1,8 +1,9 @@
 # Clipmint
 
 Clipmint is a browser-based audio and video toolkit. It converts, edits and compresses media with
-FFmpeg compiled to WebAssembly, so files are processed on your own device. There is no account and
-no upload step.
+FFmpeg compiled to WebAssembly, so files are processed on your own device.
+
+![Clipmint home screen: drop a file, browse, or record voice, camera or screen](docs/screenshots/demo.png)
 
 ## Features
 

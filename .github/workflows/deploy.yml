@@ -1,0 +1,51 @@
+name: Deploy to Cloudflare Pages
+
+# Runs only when started by hand from the Actions tab. To deploy on every push
+# to main, add this under `on:`
+#   push:
+#     branches: [main]
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
+env:
+  PAGES_PROJECT: clipmint
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      # Speech models and fonts are about 350 MB, so keep them between runs.
+      - uses: actions/cache@v4
+        with:
+          path: .cache
+          key: media-${{ hashFiles('scripts/fetch-models.mjs', 'scripts/fetch-fonts.mjs') }}
+
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+
+      # fetch-models only warns when a download fails, so stop here rather than
+      # deploy a site whose captions can't work.
+      - name: Check the speech models were built
+        run: grep -q '"tiny"' public/models/speech.json
+
+      - name: Deploy
+        run: npx wrangler pages deploy out --project-name="$PAGES_PROJECT" --branch=main
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
