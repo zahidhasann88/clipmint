@@ -73,6 +73,7 @@ Resize presets fit inside 1920×1080, 1280×720 or 854×480 with aspect ratio ke
 | Captions, Transcribe (speech detection) | Silero VAD v5, ONNX (fp32) | 2.2 MB | onnx-community/silero-vad (pinned revision), from snakers4/silero-vad, MIT (`public/models/silero-vad/LICENSE`) | WebAssembly |
 | Voice / Strong clean-up | RNNoise `sh.rnnn` | ~300 KB | richardpl/arnndn-models (from GregorR/rnnoise-models; not subject to copyright) | FFmpeg `arnndn` |
 | Follow faces | BlazeFace short range (float16) | 230 KB | MediaPipe, Apache-2.0 | WebGL (GPU) else WebAssembly |
+| Interface fonts | Bricolage Grotesque, Nunito, Caveat (Latin) | 131 KB | Google Fonts, OFL (`src/app/fonts/`) | Kept in the repo so a build never contacts Google |
 | Caption font | Atkinson Hyperlegible Bold | 55 KB | OFL (`public/fonts/OFL.txt`) | libass in FFmpeg |
 | Fonts for other scripts | Noto Sans (Latin extended, Cyrillic, Greek), Bengali, Devanagari, Arabic, JP, KR, SC | 0.5 to 2 MB each, CJK 4.7 to 8.5 MB | Google Fonts and notofonts/noto-cjk (pinned commits), OFL (`public/fonts/OFL-Noto.txt`) | libass in FFmpeg. Fetched by `scripts/fetch-fonts.mjs`; the browser loads one only when the text uses that script |
 

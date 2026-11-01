@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Caveat, Nunito } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { DeskProvider } from "@/components/desk/desk-state";
 import { Room } from "@/components/desk/room";
@@ -8,21 +8,21 @@ import { ScrollActivity } from "@/components/desk/scroll-activity";
 import { themeScript } from "@/components/desk/lamp";
 import { SITE_URL, SITE_NAME, SITE_DESCRIPTION } from "@/lib/site";
 
-const display = Bricolage_Grotesque({
-  subsets: ["latin"],
-  weight: ["700", "800"],
+const display = localFont({
+  src: "./fonts/bricolage-700-800.woff2",
+  weight: "700 800",
   variable: "--nf-display",
   display: "swap",
 });
-const ui = Nunito({
-  subsets: ["latin"],
-  weight: ["700", "800"],
+const ui = localFont({
+  src: "./fonts/nunito-700-800.woff2",
+  weight: "700 800",
   variable: "--nf-ui",
   display: "swap",
 });
-const hand = Caveat({
-  subsets: ["latin"],
-  weight: ["700"],
+const hand = localFont({
+  src: "./fonts/caveat-700.woff2",
+  weight: "700",
   variable: "--nf-hand",
   display: "swap",
 });
