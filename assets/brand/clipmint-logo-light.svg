@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 48"><title>Clipmint</title>
+<g transform="translate(2 4)">
+  <path d="M20 3c9.5 0 17 6.5 17 16.5S29.5 37 19.5 37 3 30 3 20.5 10.5 3 20 3z" fill="#F2C46D"/>
+  <path d="M10 30C10 18 18 10 30 10c0 12-8 20-20 20z" fill="#6E9468" transform="translate(2 2)"/>
+  <path d="M10 30C10 18 18 10 30 10c0 12-8 20-20 20z" fill="none" stroke="#2B3240" stroke-width="2.2" stroke-linejoin="round"/>
+  <path d="M10 30l11-11" stroke="#2B3240" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M22.5 12.5l3 3" stroke="#F8F3EA" stroke-width="3" stroke-linecap="round"/>
+</g>
+<text x="52" y="33.5" font-family="'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif" font-size="30" font-weight="800" letter-spacing="-1.05" fill="#2F5D3F">clipmint</text>
+</svg>

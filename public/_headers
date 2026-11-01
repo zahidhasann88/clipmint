@@ -1,0 +1,31 @@
+# Cloudflare Pages response headers. See docs/REFERENCE.md "Build and deploy".
+# connect-src limits fetch/XHR/WebSocket/beacon to this origin, so the page has
+# no network channel to send media anywhere else. Camera, microphone and screen capture are
+# allowed for this site only (recording happens in the page; the recording stays on the device).
+/*
+  Content-Security-Policy: connect-src 'self' blob: data:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(self), microphone=(self), display-capture=(self), geolocation=(), interest-cohort=()
+  X-Frame-Options: DENY
+
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/ffmpeg/*
+  Cache-Control: public, max-age=86400, must-revalidate
+
+/models/*
+  Cache-Control: public, max-age=604800
+
+/ort/*
+  Cache-Control: public, max-age=604800
+
+/mediapipe/*
+  Cache-Control: public, max-age=604800
+
+/fonts/*
+  Cache-Control: public, max-age=604800
+
+/sw.js
+  Cache-Control: no-cache

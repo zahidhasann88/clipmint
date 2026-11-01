@@ -1,0 +1,37 @@
+# Dependencies
+node_modules
+
+# Build output
+.next
+.next-dev
+out
+dist
+coverage
+.wrangler
+tsconfig.tsbuildinfo
+next-env.d.ts
+
+# Downloaded or generated before dev and build (see scripts/)
+/.cache
+/public/ffmpeg
+/public/mediapipe
+/public/ort
+/public/models/whisper-*
+/public/models/parts.json
+/public/models/speech.json
+/public/fonts/Noto*
+/public/fonts/OFL-Noto.txt
+
+# Secrets
+.env
+.env.*
+.dev.vars
+*.pem
+*.key
+
+# Local
+*.log
+.DS_Store
+Thumbs.db
+.vscode
+.idea

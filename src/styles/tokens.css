@@ -1,0 +1,287 @@
+/*
+ * Clipmint design tokens — light ("morning") + dark ("evening, lamp on").
+ * This is the only file that defines colors.
+ *
+ * - Fonts are self-hosted by next/font (no request to Google); the --nf-* variables
+ *   are set on <html> by src/app/layout.tsx.
+ * - Component and illustration tokens (mat chips, recipe card lines, binder clip,
+ *   jars…) live here too, so components never hard-code a color.
+ * - The dark palette is applied twice: explicit [data-theme="dark"] and the system
+ *   preference when no choice is stored.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* color */
+  --bg: #F8F3EA;
+  --surface: #EDE6DA;
+  --paper: #FFFBF3;
+  --primary: #2F5D3F;
+  --on-primary: #F8F3EA;
+  --primary-soft: #6E9468;
+  --accent: #F2C46D;
+  --on-accent: #2B3240;
+  --wood: #C98A55;
+  --wood-dark: #9C6537;
+  --ink: #2B3240;
+  --ink-soft: #5A6070;
+  --edge: #2B3240;
+  --mat: #2F5D3F;
+  --mat-line: rgba(248, 243, 234, 0.10);
+  --on-mat: #F8F3EA;
+  --pill: #DCE6D3;
+  --dot: rgba(43, 50, 64, 0.09);
+  --tint-audio: #F6DCA4;
+  --tint-video: #D3E0C8;
+  --tint-rose: #EFD3BC;
+  --tint-stone: #E4DDD0;
+  --wave-off: #B9C9B0;
+  --focus: #2B3240;
+
+  /* components */
+  --line: #8A8578;                         /* dashed outlines, quiet borders */
+  --icon-well: rgba(255, 255, 255, 0.7);   /* icon square inside stickers */
+  --track: #EDE6DA;                        /* segmented-control track, estimate block */
+  --recipe-bg: #FFFBF3;
+  --recipe-line: rgba(110, 148, 104, 0.16);
+  --recipe-margin: rgba(201, 138, 85, 0.55);
+  --leaf-on-primary: #6E9468;
+  --on-primary-accent: #F2C46D;            /* highlighted text on the primary button */              /* leaf drawn on the primary button */
+  --card-on-mat: #F8F3EA;                  /* cards resting on the mat */
+  --on-card-on-mat: #2B3240;
+  --mat-edge: #1B2A20;                     /* hard shadow of things on the mat */
+  --mat-chip: rgba(248, 243, 234, 0.14);
+  --mat-dash: rgba(248, 243, 234, 0.6);
+  --mat-tick: rgba(248, 243, 234, 0.55);
+  --mat-border: rgba(248, 243, 234, 0.5);
+  --on-mat-soft: #DCE6D3;
+  --on-mat-muted: #C9D8C2;
+  --selection: rgba(242, 196, 109, 0.38);  /* trim selection tint */
+  --film: #0E0C0A;                         /* filmstrip base */
+  --film-hole: rgba(243, 235, 221, 0.35);
+  --film-dim: rgba(28, 25, 21, 0.62);
+  --clip-body: #2B3240;                    /* binder clip on the waveform */
+  --clip-stripe: #F2C46D;
+  --clip-wire: #8A8F98;
+  --ruler: #E8A86F;
+  --ruler-stripe: rgba(255, 255, 255, 0.35);
+  --jar-glass: rgba(248, 243, 234, 0.10);
+  --jar-ticks: rgba(43, 50, 64, 0.12);
+  --jar-before: #E8A86F;
+  --jar-after: #9CC18F;
+  --sign: #6B5A45;                         /* handwritten signature */
+  --note: #9C6537;                         /* handwritten notes on the desk (large text) */
+  --window-light: rgba(255, 251, 240, 0.55);
+  --window-light-2: rgba(255, 251, 240, 0.45);
+  --lamp-glow: rgba(242, 196, 109, 0);     /* off in the morning */
+  --lamp-bg: #F8F3EA;
+  --lamp-ink: #2B3240;
+  --lamp-rays: 0;
+  --lamp-halo: 0 0 0 transparent;
+  --shadow-drop: rgba(0, 0, 0, 0.18);
+  --overlay: rgba(14, 12, 10, 0.75);       /* chip on top of a video */
+  --on-wood: #1C1915;                      /* text on the wooden video frame */
+  --wood-track: rgba(28, 25, 21, 0.3);
+  --sheet-grab: #C9BEAC;
+  --sheet-shadow: rgba(43, 50, 64, 0.35);
+  --scroll-thumb: #C98A55;                 /* scrollbars: a little wooden plank */
+  --scroll-thumb-hover: #9C6537;
+  --scroll-track: rgba(43, 50, 64, 0.06);
+
+  /* illustration palette (fixed across themes, like printed stickers) */
+  --ill-line: #2B3240;
+  --ill-cream: #F8F3EA;
+  --ill-paper: #FFFBF3;
+  --ill-beige: #EDE6DA;
+  --ill-forest: #2F5D3F;
+  --ill-forest-deep: #1F3A28;
+  --ill-sage: #6E9468;
+  --ill-sage-light: #9CC18F;
+  --ill-mustard: #F2C46D;
+  --ill-mustard-deep: #E7B65C;
+  --ill-wood: #C98A55;
+  --ill-clay: #E8A86F;
+  --ill-clay-deep: #D49A66;
+  --ill-sky: #E9B866;
+  --ill-oat: #F3EBDD;
+  --ill-walnut: #2A251F;
+  --ill-night-mat: #28452F;
+  --ill-night-line: #0E0C0A;
+  --ill-shade: #1B2A20;
+
+  /* type */
+  --font-display: var(--nf-display, 'Bricolage Grotesque'), system-ui, sans-serif;
+  --font-ui: var(--nf-ui, 'Nunito'), system-ui, sans-serif;
+  --font-hand: var(--nf-hand, 'Caveat'), cursive;
+
+  /* shape */
+  --r-sticker: 14px 17px 15px 12px;
+  --r-button: 18px 20px 18px 16px;
+  --r-panel: 30px 36px 32px 28px;
+  --r-mat: 42px 48px 44px 38px;
+  --r-card: 8px 28px 26px 30px;
+  --r-blob: 46% 54% 50% 50% / 52% 46% 54% 48%;
+
+  /* depth */
+  --shadow-sticker: 2px 3px 0 var(--edge);
+  --shadow-card: 4px 5px 0 var(--edge);
+  --shadow-mat: 0 26px 44px -26px rgba(20, 30, 22, 0.55);
+
+  /* motion */
+  --spring: cubic-bezier(.3, 1.6, .5, 1);
+  --t-wiggle: 180ms;
+
+  /* layout */
+  --max-w: 1360px;
+  --gutter: clamp(16px, 3vw, 40px);
+  --tap: 44px;
+}
+
+/* Evening, lamp on. Kept identical in both selectors below. */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1C1915;
+  --surface: #2A251F;
+  --paper: #332D25;
+  --primary: #A9CB9C;
+  --on-primary: #1C1915;
+  --primary-soft: #6E9468;
+  --accent: #F2C46D;
+  --on-accent: #2B3240;
+  --wood: #B57A48;
+  --wood-dark: #6E4526;
+  --ink: #F3EBDD;
+  --ink-soft: #C9BEAC;
+  --edge: #0E0C0A;
+  --mat: #28452F;
+  --mat-line: rgba(243, 235, 221, 0.08);
+  --on-mat: #F3EBDD;
+  --pill: #2E4434;
+  --dot: rgba(243, 235, 221, 0.06);
+  --tint-audio: #54432A;
+  --tint-video: #33493A;
+  --tint-rose: #4A3428;
+  --tint-stone: #3A332A;
+  --wave-off: #55654E;
+  --focus: #F2C46D;
+  --line: #4A4236;
+  --icon-well: rgba(0, 0, 0, 0.25);
+  --track: #1C1915;
+  --recipe-bg: #2A251F;
+  --recipe-line: rgba(243, 235, 221, 0.05);
+  --recipe-margin: rgba(181, 122, 72, 0.6);
+  --leaf-on-primary: #2F5D3F;
+  --on-primary-accent: #1C1915;
+  --card-on-mat: #1C1915;
+  --on-card-on-mat: #F3EBDD;
+  --mat-edge: #0E0C0A;
+  --mat-chip: rgba(243, 235, 221, 0.12);
+  --mat-dash: rgba(243, 235, 221, 0.5);
+  --mat-tick: rgba(243, 235, 221, 0.45);
+  --mat-border: rgba(243, 235, 221, 0.4);
+  --on-mat-soft: #C9BEAC;
+  --on-mat-muted: #A99F8E;
+  --clip-body: #F2C46D;
+  --clip-stripe: #0E0C0A;
+  --clip-wire: #C9C3B8;
+  --jar-glass: rgba(243, 235, 221, 0.08);
+  --jar-before: #D49A66;
+  --jar-after: #A9CB9C;
+  --sign: #C9BEAC;
+  --note: #F2C46D;
+  --window-light: rgba(255, 251, 240, 0);
+  --window-light-2: rgba(255, 251, 240, 0);
+  --lamp-glow: rgba(242, 196, 109, 0.16);
+  --lamp-bg: #F2C46D;
+  --lamp-ink: #2B3240;
+  --lamp-rays: 1;
+  --lamp-halo: 0 0 26px rgba(242, 196, 109, 0.45);
+  --shadow-drop: rgba(0, 0, 0, 0.35);
+  --sheet-grab: #5A5144;
+  --sheet-shadow: rgba(0, 0, 0, 0.6);
+  --scroll-thumb: #8A5F3C;
+  --scroll-thumb-hover: #B57A48;
+  --scroll-track: rgba(243, 235, 221, 0.05);
+  --shadow-mat: 0 26px 44px -26px rgba(0, 0, 0, 0.7);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #1C1915;
+    --surface: #2A251F;
+    --paper: #332D25;
+    --primary: #A9CB9C;
+    --on-primary: #1C1915;
+    --primary-soft: #6E9468;
+    --accent: #F2C46D;
+    --on-accent: #2B3240;
+    --wood: #B57A48;
+    --wood-dark: #6E4526;
+    --ink: #F3EBDD;
+    --ink-soft: #C9BEAC;
+    --edge: #0E0C0A;
+    --mat: #28452F;
+    --mat-line: rgba(243, 235, 221, 0.08);
+    --on-mat: #F3EBDD;
+    --pill: #2E4434;
+    --dot: rgba(243, 235, 221, 0.06);
+    --tint-audio: #54432A;
+    --tint-video: #33493A;
+    --tint-rose: #4A3428;
+    --tint-stone: #3A332A;
+    --wave-off: #55654E;
+    --focus: #F2C46D;
+    --line: #4A4236;
+    --icon-well: rgba(0, 0, 0, 0.25);
+    --track: #1C1915;
+    --recipe-bg: #2A251F;
+    --recipe-line: rgba(243, 235, 221, 0.05);
+    --recipe-margin: rgba(181, 122, 72, 0.6);
+    --leaf-on-primary: #2F5D3F;
+    --on-primary-accent: #1C1915;
+  --on-primary-accent: #1C1915;
+    --card-on-mat: #1C1915;
+    --on-card-on-mat: #F3EBDD;
+    --mat-edge: #0E0C0A;
+    --mat-chip: rgba(243, 235, 221, 0.12);
+    --mat-dash: rgba(243, 235, 221, 0.5);
+    --mat-tick: rgba(243, 235, 221, 0.45);
+    --mat-border: rgba(243, 235, 221, 0.4);
+    --on-mat-soft: #C9BEAC;
+    --on-mat-muted: #A99F8E;
+    --clip-body: #F2C46D;
+    --clip-stripe: #0E0C0A;
+    --clip-wire: #C9C3B8;
+    --jar-glass: rgba(243, 235, 221, 0.08);
+    --jar-before: #D49A66;
+    --jar-after: #A9CB9C;
+    --sign: #C9BEAC;
+    --note: #F2C46D;
+  --note: #F2C46D;
+    --window-light: rgba(255, 251, 240, 0);
+    --window-light-2: rgba(255, 251, 240, 0);
+    --lamp-glow: rgba(242, 196, 109, 0.16);
+    --lamp-bg: #F2C46D;
+    --lamp-ink: #2B3240;
+    --lamp-rays: 1;
+    --lamp-halo: 0 0 26px rgba(242, 196, 109, 0.45);
+    --shadow-drop: rgba(0, 0, 0, 0.35);
+    --sheet-grab: #5A5144;
+    --sheet-shadow: rgba(0, 0, 0, 0.6);
+    --scroll-thumb: #8A5F3C;
+    --scroll-thumb-hover: #B57A48;
+    --scroll-track: rgba(243, 235, 221, 0.05);
+    --shadow-mat: 0 26px 44px -26px rgba(0, 0, 0, 0.7);
+  }
+}
+
+/* The green mat keeps a mustard focus ring in both themes (4.6:1 on forest);
+   cards that rest on the mat restore the page ring. */
+.mat { --focus: var(--accent); }
+.mat .on-mat-card { --focus: var(--ink); }
+:root[data-theme="dark"] .mat .on-mat-card { --focus: var(--accent); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .mat .on-mat-card { --focus: var(--accent); }
+}
