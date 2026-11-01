@@ -1,10 +1,9 @@
 name: Deploy to Cloudflare Pages
 
-# Runs only when started by hand from the Actions tab. To deploy on every push
-# to main, add this under `on:`
-#   push:
-#     branches: [main]
+# Runs on every push to main, or by hand from the Actions tab.
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
